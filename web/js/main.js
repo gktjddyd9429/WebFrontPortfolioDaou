@@ -511,7 +511,7 @@ function initDaouValues() {
   const valueEvidences = {
     system: [
       'C++로 OpenGL 렌더링 파이프라인 + DICOM 의료 영상 파이프라인 직접 구현',
-      'C#(Unity)으로 VR 시뮬레이션 클라이언트 1년 총괄. Python FastAPI 백엔드 구축',
+      'C#(Unity)으로 VR 시뮬레이션 클라이언트 1년 총괄.',
     ],
     realtime: [
       'VR HMD 90fps 달성 — URP 렌더 패스 코드 직접 분석·다운샘플링 최적화',
