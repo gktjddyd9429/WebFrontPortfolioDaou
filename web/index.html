@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="하성용 시스템 개발자 포트폴리오 - Java, C++, Android, AI 파이프라인 전문. 다우기술(키움증권) 금융/증권 IT 개발 신입 지원.">
+  <meta name="keywords" content="하성용, 다우기술, 키움증권, 금융 IT 개발, Java, C++, Android, 신입 개발자, SSAFY, 포트폴리오">
+  <meta property="og:title" content="하성용 | System Developer Portfolio">
+  <meta property="og:description" content="실시간 처리 최적화 · AI 파이프라인 · Android 앱 개발 경험의 신입 개발자">
+  <title>하성용 | System Developer Portfolio</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/daou-tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/project-detail-modal.css">
+  <link rel="stylesheet" href="css/tech-icons.css">
+
+  <!-- 페이지 아이콘 (이모지 파비콘) - 다우기술 금융 테마 -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💹</text></svg>">
+</head>
+
+<body>
+
+  <!-- 스캔라인 오버레이 -->
+  <div class="scanline-overlay" aria-hidden="true"></div>
+
+  <!-- 스크롤 진행 바 -->
+  <div id="scroll-progress" style="
+  position:fixed;top:0;left:0;height:2px;width:0;
+  background:var(--grad-daou-primary);
+  z-index:9999;transition:width 0.1s linear;pointer-events:none;
+  box-shadow:0 0 10px rgba(36, 132, 198, 0.5);" aria-hidden="true"></div>
+
+  <!-- ════════════════════════════════════════════
+     GNB (Global Navigation Bar)
+════════════════════════════════════════════ -->
+  <header id="site-nav" role="banner">
+    <div class="nav-inner">
+      <!-- 로고 -->
+      <a href="#hero" class="nav-logo" aria-label="홈으로">
+        <div class="nav-logo-icon" aria-hidden="true">⬡</div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-main">HA SUNG YONG</span>
+          <span class="nav-logo-sub">System Developer</span>
+        </div>
+      </a>
+
+      <!-- 메뉴 -->
+      <nav aria-label="주요 내비게이션">
+        <ul class="nav-links">
+          <li><a href="#about" id="nav-about">About</a></li>
+          <li><a href="#skills" id="nav-skills">Skills</a></li>
+          <li><a href="#projects" id="nav-projects">Projects</a></li>
+          <li><a href="#nexon-fit" id="nav-nexon">DAOU</a></li>
+        </ul>
+      </nav>
+
+      <!-- 우측 액션 -->
+      <div class="nav-actions">
+        <a href="https://github.com/gktjddyd" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">GitHub</a>
+      </div>
+
+      <!-- 모바일 햄버거 -->
+      <button class="hamburger" id="hamburger" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 모바일 풀스크린 내비 -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="모바일 내비게이션">
+    <button class="mobile-close" id="mobile-close" aria-label="메뉴 닫기">✕</button>
+    <a href="#about" data-section>About</a>
+    <a href="#skills" data-section>Skills</a>
+    <a href="#projects" data-section>Projects</a>
+    <a href="#nexon-fit" data-section>DAOU Fit</a>
+  </nav>
+
+  <!-- ════════════════════════════════════════════
+     HERO SECTION
+════════════════════════════════════════════ -->
+  <section id="hero" aria-labelledby="hero-title">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow animate-fade-up">
+        <span class="hero-eyebrow-line" aria-hidden="true"></span>
+        SYSTEM DEVELOPER PORTFOLIO
+        <span class="hero-eyebrow-line" aria-hidden="true"></span>
+      </div>
+
+      <h1 id="hero-title" class="hero-title animate-fade-up delay-100">
+        <span class="line-break">RELIABLE</span>
+        <span class="line-break highlight">SYSTEM ENGINEERING</span>
+        <span class="line-break">&amp; FINANCIAL IT INNOVATION</span>
+      </h1>
+
+      <p class="hero-subtitle animate-fade-up delay-200">
+        실시간 처리 성능 최적화 경험을 바탕으로 안정적인 시스템 아키텍처 설계 및<br>
+        AI·모바일 서비스 파이프라인 완성.<br>
+        <strong class="text-cyan font-code">
+          <span id="hero-typing" aria-live="polite"></span><span class="typing-cursor" aria-hidden="true"></span>
+        </strong>
+      </p>
+
+      <!-- 핵심 기술 키워드 배지 (다우기술 직무 맞춤) -->
+      <div class="hero-keywords animate-fade-up delay-300" aria-label="핵심 기술">
+        <span class="badge badge-blue">Java</span>
+        <span class="badge badge-blue">C++</span>
+        <span class="badge badge-cyan">Android</span>
+        <span class="badge badge-cyan">AI Pipeline</span>
+        <span class="badge badge-ghost">C#</span>
+        <span class="badge badge-ghost">System Design</span>
+        <span class="badge badge-green">SSAFY</span>
+        <span class="badge badge-blue">Optimization</span>
+      </div>
+
+      <!-- CTA 버튼 -->
+      <div class="hero-actions animate-fade-up delay-400">
+        <a href="#projects" class="btn btn-primary" id="cta-projects">
+          프로젝트 둘러보기 →
+        </a>
+        <a href="#about" class="btn btn-secondary" id="cta-about">
+          개발자 소개 보기
+        </a>
+        <a href="https://github.com/gktjddyd" target="_blank" rel="noopener" class="btn btn-ghost" id="cta-github">
+          🐙 GitHub
+        </a>
+      </div>
+
+      <!-- 통계 -->
+      <div class="hero-stats animate-fade-up delay-500">
+        <div class="hero-stat">
+          <div class="hero-stat-num">6<span>+</span></div>
+          <div class="hero-stat-label">Projects</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">1<span>년</span></div>
+          <div class="hero-stat-label">장기 팀 프로젝트</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">90<span>fps</span></div>
+          <div class="hero-stat-label">시뮬레이션 성능 달성</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">🏆</div>
+          <div class="hero-stat-label">캡스톤 총장상</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+     ABOUT SECTION (2번째 섹션: 개발자 소개)
+════════════════════════════════════════════ -->
+  <section id="about" class="section" aria-labelledby="about-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Developer Profile</span>
+        <h2 class="section-title" id="about-title">개발자 소개</h2>
+        <div class="divider" aria-hidden="true"></div>
+      </div>
+
+      <div class="about-grid">
+        <!-- 프로필 카드 -->
+        <aside class="about-profile-box reveal-left" aria-label="개발자 프로필">
+          <h3 class="about-name">하 성 용</h3>
+          <div class="about-position">Ha Sung Yong · System Developer</div>
+
+          <ul class="about-contact" aria-label="연락처 정보">
+            <li>
+              <div class="contact-icon" aria-hidden="true">📞</div>
+              <a class="contact-val" href="tel:010-7572-9429">010-7572-9429</a>
+            </li>
+            <li>
+              <div class="contact-icon" aria-hidden="true">✉️</div>
+              <a class="contact-val" href="mailto:gktjddyd9429@naver.com">gktjddyd9429@naver.com</a>
+            </li>
+            <li>
+              <div class="contact-icon" aria-hidden="true">🐙</div>
+              <a class="contact-val" href="https://github.com/gktjddyd" target="_blank" rel="noopener">
+                github.com/gktjddyd
+              </a>
+            </li>
+          </ul>
+        </aside>
+
+        <!-- 소개 본문 -->
+        <div class="about-desc reveal-right">
+          <h4>
+            <span class="about-title-top">시스템 신뢰 중시</span>
+            <span class="about-title-bottom">멈추지 않는 서비스 완성.</span>
+          </h4>
+          <p>
+            시스템 안정성과 실시간 처리 성능을 사용자 신뢰의 핵심 기반으로 정의.<br>
+            URP Render Pass, Stencil Buffer, FBO 오프스크린 렌더링을 직접 구현하며 렌더링 파이프라인 동작 원리 심층 분석 및 최적화 수행.
+          </p>
+          <p>
+            1년간의 팀 VR 프로젝트를 통해 실시간 최적화·협업·완결성을 검증.<br>
+            기획 변경에 유연한 아키텍처 설계 및 기획·아트 직군과의 긴밀한 협업을 통한 완성도 높은 프로젝트 완수.
+          </p>
+          <p>
+            다우기술 금융 IT 환경에서의 안정적 시스템 개발과 AI 서비스 구현을 목표로 지원.<br>
+            안정적인 시스템과 고품질 비주얼의 결합으로 글로벌 플레이어에게 최상의 경험 제공 목표.
+          </p>
+
+          <!-- 타임라인 -->
+          <div class="timeline" style="margin-top:var(--space-8)" aria-label="경력 및 학력 타임라인">
+            <div class="timeline-item">
+              <div class="timeline-date">2026.07 ~ 현재</div>
+              <div class="timeline-title">삼성 청년 SW AI 아카데미 (SSAFY)</div>
+              <div class="timeline-desc"> 알고리즘 실력 향상 및 AI 지식/활용 역량 구축 </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2025.05</div>
+              <div class="timeline-title">제 15회 숭실 캡스톤디자인 공학 경진대회 총장상 (동상)</div>
+              <div class="timeline-desc">이오름(Eorum) - 청각 장애인 AI 구화 학습 서비스</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2025.05.23 ~ 25</div>
+              <div class="timeline-title">글로벌미디어학부 졸업 프로젝트 전시</div>
+              <div class="timeline-desc">The Mute Brush_ VR 체험 전시 성공 런칭</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2023.03 ~ 2026.08</div>
+              <div class="timeline-title">숭실대학교 컴퓨터학부 복수전공</div>
+              <div class="timeline-desc">IT대학 컴퓨터학부 · 자료구조, 알고리즘, 컴퓨터그래픽스 이수</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2020.03 ~ 2026.08</div>
+              <div class="timeline-title">숭실대학교 IT대학 글로벌미디어학부 주전공</div>
+              <div class="timeline-desc">시뮬레이션 엔진, VR/AR, 렌더링, 미디어 프로그래밍 집중 이수</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+     SKILLS SECTION
+════════════════════════════════════════════ -->
+  <section id="skills" class="section" aria-labelledby="skills-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Tech Stack</span>
+        <h2 class="section-title" id="skills-title">기술 역량</h2>
+        <div class="divider" aria-hidden="true"></div>
+        <p class="section-desc">
+          시뮬레이션 엔진, 그래픽스 파이프라인, 알고리즘까지
+          깊이 파고드는 엔지니어링 역량
+        </p>
+      </div>
+
+      <!-- 선택된 기술 설명 영역 -->
+      <div id="tech-selected-desc-zone" class="tech-selected-desc-zone" aria-live="polite">
+        <p id="tech-selected-desc-text"></p>
+      </div>
+
+      <!-- 인터랙티브 기술 아이콘 그리드 -->
+      <div class="tech-icon-stage" id="tech-icon-stage" aria-label="기술 스택">
+
+        <!-- 아이콘 격자 -->
+        <div class="tech-icons-grid" id="tech-icons-grid">
+
+          <!-- Java -->
+          <button class="tech-icon-btn" data-tech="java" aria-label="Java 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg"
+                alt="Java Logo" class="tech-img">
+            </div>
+            <span class="tib-label">Java</span>
+          </button>
+
+          <!-- C++ -->
+          <button class="tech-icon-btn" data-tech="cpp" aria-label="C++ 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++ Logo"
+                class="tech-img">
+            </div>
+            <span class="tib-label">C++</span>
+          </button>
+
+          <!-- C -->
+          <button class="tech-icon-btn" data-tech="c" aria-label="C 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="assets/c.svg" alt="C Logo" class="tech-img">
+            </div>
+            <span class="tib-label">C</span>
+          </button>
+
+          <!-- SQL -->
+          <button class="tech-icon-btn" data-tech="sql" aria-label="SQL 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="assets/sql.svg" alt="SQL Logo" class="tech-img">
+            </div>
+            <span class="tib-label">SQL</span>
+          </button>
+
+          <!-- Vue -->
+          <button class="tech-icon-btn" data-tech="vue" aria-label="Vue.js 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="assets/vue.svg" alt="Vue Logo" class="tech-img">
+            </div>
+            <span class="tib-label">Vue</span>
+          </button>
+
+          <!-- C# -->
+          <button class="tech-icon-btn" data-tech="csharp" aria-label="C# 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Logo_C_sharp.svg" alt="C# Logo"
+                class="tech-img">
+            </div>
+            <span class="tib-label">C#</span>
+          </button>
+
+          <!-- Python -->
+          <button class="tech-icon-btn" data-tech="python" aria-label="Python 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo"
+                class="tech-img">
+            </div>
+            <span class="tib-label">Python</span>
+          </button>
+
+          <!-- Android Studio -->
+          <button class="tech-icon-btn" data-tech="android" aria-label="Android Studio 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Android_Studio_icon_%282023%29.svg"
+                alt="Android Studio Logo" class="tech-img">
+            </div>
+            <span class="tib-label">Android</span>
+          </button>
+
+          <!-- OpenCV -->
+          <button class="tech-icon-btn" data-tech="opencv" aria-label="OpenCV 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/OpenCV_Logo_with_text_svg_version.svg"
+                alt="OpenCV Logo" class="tech-img">
+            </div>
+            <span class="tib-label">OpenCV</span>
+          </button>
+
+          <!-- Unity -->
+          <button class="tech-icon-btn" data-tech="unity" aria-label="Unity 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity Logo"
+                class="tech-img invert-icon">
+            </div>
+            <span class="tib-label">Unity</span>
+          </button>
+
+          <!-- OpenGL -->
+          <button class="tech-icon-btn" data-tech="opengl" aria-label="OpenGL 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/OpenGL_logo.svg" alt="OpenGL Logo"
+                class="tech-img">
+            </div>
+            <span class="tib-label">OpenGL</span>
+          </button>
+
+          <!-- CUDA -->
+          <button class="tech-icon-btn" data-tech="cuda" aria-label="CUDA 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="assets/cuda.svg" alt="CUDA Logo" class="tech-img">
+            </div>
+            <span class="tib-label">CUDA</span>
+          </button>
+        </div><!-- /.tech-icons-grid -->
+      </div><!-- /.tech-icon-stage -->
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+     PROJECTS SECTION
+════════════════════════════════════════════ -->
+  <section id="projects" class="section nexon-grid-bg" aria-labelledby="projects-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Portfolio</span>
+        <h2 class="section-title" id="projects-title">프로젝트 쇼케이스</h2>
+        <div class="divider" aria-hidden="true"></div>
+        <p class="section-desc">
+          총 6개 프로젝트 <br>각 카드의 <strong class="text-cyan">Deep-Dive</strong> 버튼으로
+          아키텍처 및 트러블슈팅 상세 분석 확인 가능.
+        </p>
+      </div>
+
+      <!-- 필터 탭 -->
+      <div class="filter-tabs" role="tablist" aria-label="프로젝트 필터">
+        <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="filter-tab" data-filter="unity" role="tab" aria-selected="false">Unity / C#</button>
+        <button class="filter-tab" data-filter="opengl" role="tab" aria-selected="false">OpenGL / C++</button>
+        <button class="filter-tab" data-filter="other" role="tab" aria-selected="false">AI · Android · CV</button>
+      </div>
+
+      <!-- 프로젝트 그리드 (JS로 채워짐) -->
+      <div id="projects-grid" class="projects-grid" role="list" aria-label="프로젝트 목록">
+        <!-- JS에서 렌더링 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+     DAOU FIT SECTION
+════════════════════════════════════════════ -->
+  <section id="nexon-fit" class="section" aria-labelledby="nexon-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">DAOU × HA SUNG YONG</span>
+        <h2 class="section-title" id="nexon-title">핵심 개발 역량 및 프로젝트 철학</h2>
+        <div class="divider" aria-hidden="true"></div>
+        <p class="section-desc">
+          한계를 돌파하는 최적화(SYSTEM)와 사용자 경험을 향한 고민(REALTIME) <br> 다우기술 금융 IT의 지향점과 맞닿은 코드 작성 및 검증.
+        </p>
+      </div>
+
+      <!-- 클라이언트 프로그래머 실전 경험 검증 -->
+      <div class="job-requirements reveal" style="max-width:800px;margin:0 auto var(--space-12)">
+        <div class="job-req-header">
+          <span style="font-size:1.5rem"></span>
+          <h4>클라이언트 프로그래머 실전 경험 검증</h4>
+        </div>
+        <ul class="job-req-list" aria-label="실전 개발 경험 검증 목록">
+          <li class="job-req-item">
+            <div class="job-req-check pass" aria-label="검증 완료">✓</div>
+            <div class="job-req-text">
+              <strong>Java, C/C++, Python 언어 역량</strong>
+              C++ OpenGL 및 DICOM 파이프라인 · C#(Unity) 클라이언트 총괄 · Python FastAPI
+            </div>
+          </li>
+          <li class="job-req-item">
+            <div class="job-req-check pass" aria-label="검증 완료">✓</div>
+            <div class="job-req-text">
+              <strong>실시간 시스템 성능 최적화</strong>
+              VR HMD 90fps 달성 — URP 다운샘플링 최적화
+            </div>
+          </li>
+          <li class="job-req-item">
+            <div class="job-req-check pass" aria-label="검증 완료">✓</div>
+            <div class="job-req-text">
+              <strong>Android / Mobile 앱 개발</strong>
+              Android Studio 앱 개발(이오름), FastAPI 통신 파이프라인 구축
+            </div>
+          </li>
+          <li class="job-req-item">
+            <div class="job-req-check pass" aria-label="검증 완료">✓</div>
+            <div class="job-req-text">
+              <strong>AI 서비스 개발 경험</strong>
+              DTW 시계열 매칭 알고리즘 구현 · AI 프롬프트 설계 및 SSAFY AI 교육 이수
+            </div>
+          </li>
+          <li class="job-req-item">
+            <div class="job-req-check pass" aria-label="검증 완료">✓</div>
+            <div class="job-req-text">
+              <strong>팀 협업 및 장기 프로젝트 완주</strong>
+              3인 팀 VR 1년 완주(런칭) · 캡스톤디자인 총장상(동상) 수상
+            </div>
+          </li>
+          <li class="job-req-item">
+            <div class="job-req-check good" aria-label="심화 역량">★</div>
+            <div class="job-req-text">
+              <strong>컴퓨터공학 복수전공 + SSAFY</strong>
+              Computer Science 학습, 삼성 청년 SW AI 아카데미 입과(26.07~)
+            </div>
+          </li>
+          <li class="job-req-item">
+            <div class="job-req-check good" aria-label="심화 역량">★</div>
+            <div class="job-req-text">
+              <strong>시스템 아키텍처 설계</strong>
+              컴포넌트 아키텍처, 옵저버 패턴, 클라이언트-서버 비동기 시스템
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 핵심 개발 가치 및 철학 카드 (JS로 채워짐) -->
+      <div id="values-container" class="nexon-values-grid" aria-label="핵심 개발 철학 및 가치 매핑">
+        <!-- JS에서 렌더링 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+  <footer id="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-title">HA SUNG YONG</div>
+          <div class="footer-brand-desc">
+            시스템 개발 & AI 파이프라인 전문 신입 개발자<br>
+            다우기술(키움증권) 금융 IT 개발을 향한 열정을 담은 포트폴리오
+          </div>
+        </div>
+        <div class="footer-links-col">
+          <h6>Projects</h6>
+          <ul class="footer-links-list">
+            <li><a href="#projects" onclick="openProjectModalById('mute-brush')">The Mute Brush_</a></li>
+            <li><a href="#projects" onclick="openProjectModalById('carrot-mansion')">Carrot Mansion</a></li>
+            <li><a href="#projects" onclick="openProjectModalById('seek-card')">Seek the card</a></li>
+            <li><a href="#projects" onclick="openProjectModalById('eorum')">이오름 (Eorum)</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h6>Links</h6>
+          <ul class="footer-links-list">
+            <li><a href="#about">About (개발자 소개)</a></li>
+            <li><a href="https://github.com/gktjddyd" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="mailto:gktjddyd9429@naver.com">Email</a></li>
+            <li><a href="https://www.daou.co.kr/ko/recruit" target="_blank" rel="noopener">다우기술 채용</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          © 2026 Ha Sung Yong · System Developer Portfolio · Built with DAOU Design System
+        </div>
+        <div class="footer-social">
+          <a href="https://github.com/gktjddyd" target="_blank" rel="noopener" aria-label="GitHub">
+            🐙
+          </a>
+          <a href="mailto:gktjddyd9429@naver.com" aria-label="이메일">
+            ✉️
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════════════════════
+     PROJECT DETAIL MODAL
+════════════════════════════════════════════ -->
+  <div id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true"></div>
+
+  <div id="project-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <!-- 모달 헤더 -->
+    <div class="modal-header">
+      <div class="modal-header-left" id="modal-header-content">
+        <!-- JS에서 렌더링 -->
+      </div>
+      <button class="modal-close" id="modal-close-btn" aria-label="모달 닫기">✕</button>
+    </div>
+
+    <!-- 탭 -->
+    <div class="modal-tabs" role="tablist" id="modal-tabs">
+      <!-- JS에서 렌더링 -->
+    </div>
+
+    <!-- 바디 -->
+    <div class="modal-body" id="modal-body">
+      <!-- JS에서 렌더링 -->
+    </div>
+
+    <!-- 푸터 -->
+    <div class="modal-footer">
+      <div class="modal-footer-links" id="modal-footer-links">
+        <!-- JS에서 렌더링 -->
+      </div>
+      <button class="btn btn-ghost btn-sm" onclick="closeProjectModal()" aria-label="모달 닫기">
+        ✕ 닫기
+      </button>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/data/projects-data.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/tech-icons.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
